@@ -1,5 +1,6 @@
 streamlit-nightly
 streamlit-echarts
+pandas
 numpy
 scipy
 plotly

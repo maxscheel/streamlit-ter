@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_echarts import st_echarts
-
+import pandas as pd 
 # import plotly.figure_factory as ff
 # import numpy as np
 
@@ -21,6 +21,13 @@ from streamlit_echarts import st_echarts
 # # Plot!
 # st.plotly_chart(fig, use_container_width=True)
 
+df = pd.read_csv('https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv')
+
+st.dataframe(df)
+
+st.table(df)
+
+
 
 
 option = {
@@ -39,5 +46,6 @@ events = {
 }
 value = st_echarts(option, events=events)
 st.write(value)  # shows name on bar click and type+name+value on bar double click
+
 
 

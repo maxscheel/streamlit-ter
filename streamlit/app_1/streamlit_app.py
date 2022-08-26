@@ -19,3 +19,25 @@ fig = ff.create_distplot(
 
 # Plot!
 st.plotly_chart(fig, use_container_width=True)
+
+
+from streamlit_echarts import st_echarts
+
+option = {
+    "xAxis": {
+        "type": "category",
+        "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    },
+    "yAxis": { "type": "value" },
+    "series": [
+        {"data": [820, 932, 901, 934, 1290, 1330, 1320], "type": "line" }
+    ],
+}
+events = {
+    "click": "function(params) { console.log(params.name); return params.name }",
+    "dblclick":"function(params) { return [params.type, params.name, params.value] }"
+}
+value = st_echarts(option, events=events)
+st.write(value)  # shows name on bar click and type+name+value on bar double click
+
+
